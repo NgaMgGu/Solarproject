@@ -8,7 +8,7 @@ import streamlit as st
 import plotly.express as px
 
 st.title('The Project of Solar Energy Assessemnt in the Yangon Region')
-df = pd.read_csv(r'C:\\Users\\Asus\\Desktop\\project\\solarprjv3\\GHI_yangon.csv')
+df = pd.read_csv('GHI_yangon.csv')
 st.subheader('Overview of DataSet')
 # Printing the dataswet shape
 print ("Dataset Length: ", len(df))
