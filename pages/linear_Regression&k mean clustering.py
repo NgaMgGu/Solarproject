@@ -154,7 +154,7 @@ df["label"] = clusters1
 
 
 
-from io import BytesIO
+
 
 # Print selected columns and cluster labels
 
