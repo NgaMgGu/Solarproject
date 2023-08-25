@@ -1,3 +1,7 @@
+import matplotlib
+matplotlib.use('Agg')  # Use Agg backend
+import matplotlib.pyplot as plt
+
 from sklearn.cluster import KMeans
 import streamlit as st
 import pandas as pd
