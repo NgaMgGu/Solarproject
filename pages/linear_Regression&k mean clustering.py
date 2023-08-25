@@ -104,7 +104,7 @@ st.pyplot(plt.gcf())
 
 
 
-df = pd.read_csv(r'C:\\Users\\Asus\\Desktop\\project\\solarprjv3\\GHI_yangon_v2.csv')
+df = pd.read_csv('GHI_yangon_v2.csv')
 dataindex= df.iloc[:, [11]]
 print(dataindex)
 
