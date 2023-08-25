@@ -1,10 +1,4 @@
-import matplotlib
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 
-import matplotlib
-matplotlib.use("TkAgg")  # Use the TkAgg backend
-import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import seaborn as sns
