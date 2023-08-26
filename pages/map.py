@@ -3,7 +3,7 @@ import streamlit as st
 import plotly.express as px
 
 # Load the data
-Yangon_cities = pd.read_csv('GHI_yangon_v2.csv')
+Yangon_cities = pd.read_csv('GHI_yangon_v3.csv')
 
 # App title and initial map display
 st.title('Solar Generation Area in Yangon Region')
@@ -32,14 +32,14 @@ st.markdown("##")
 Category_column = st.sidebar.radio("Check the mean value of Category and Select Category Column you want", (0, 1, 2))
 
 # Filter data based on the selected label column (Category) and township
-filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_cities['Category'] == Category_column)]
+filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_cities['label'] == Category_column)]
 
 # Create a multiselect to choose filtering within the selected category
-category_filter = st.sidebar.multiselect("Filter within Category", options=filtered_data['Category'].unique())
+category_filter = st.sidebar.multiselect("Filter within Category", options=filtered_data['label'].unique())
 
 # Apply additional filter if needed
 if category_filter:
-    filtered_data = filtered_data[filtered_data['Category'].isin(category_filter)]
+    filtered_data = filtered_data[filtered_data['label'].isin(category_filter)]
     
 # Create a multiselect to choose filtering by MW or cost
 filter_by = st.sidebar.multiselect("Filter by", options=['GHI_MW', 'Cost_USD(M)'])
