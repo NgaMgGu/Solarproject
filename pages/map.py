@@ -57,7 +57,7 @@ if filter_by:
 
 # Update the map based on the filtered data if it's not empty
 if not filtered_data.empty:
-    taifig = px.scatter_mapbox(filtered_data, lat="Y_Coordinate", lon="X_Coordinate", hover_name="TS_Name", hover_data=["ID", "Category","Shape_Area(sqm)", "GHI_MW","GHI_kWh","Cost_USD(M)"],
+    taifig = px.scatter_mapbox(filtered_data, lat="Y_Coordinate", lon="X_Coordinate", hover_name="TS_Name", hover_data=["ID", "label","Shape_Area(sqm)", "GHI_MW","GHI_kWh","Cost_USD(M)"],
                             color_discrete_sequence=["fuchsia"], size_max=15, zoom=10, height=700)
     taifig.update_layout(mapbox_style="open-street-map")
     taifig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
