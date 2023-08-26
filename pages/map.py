@@ -31,11 +31,11 @@ filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_ci
 category_filter = st.sidebar.multiselect("Filter within Category", options=filtered_data['Category'].unique())
 
 # Apply additional filter if needed
-#if category_filter:
+if category_filter:
     filtered_data = filtered_data[filtered_data['Category'].isin(category_filter)]
     
 # Create a multiselect to choose filtering by MW or cost
-#filter_by = st.sidebar.multiselect("Filter by", options=['GHI_MW', 'Cost_USD(M)'])
+filter_by = st.sidebar.multiselect("Filter by", options=['GHI_MW', 'Cost_USD(M)'])
 
 # Apply additional filter if needed
 if filter_by:
