@@ -3,7 +3,7 @@ import streamlit as st
 import plotly.express as px
 
 # Load the data
-Yangon_cities = pd.read_csv('df')
+Yangon_cities = pd.read_csv('GHI_yangon_v2')
 
 # App title and initial map display
 st.title('Solar Generation Area in Yangon Region')
