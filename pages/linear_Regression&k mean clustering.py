@@ -126,7 +126,7 @@ st.title('Grouping of Solar Energy Genereation Potential wih Cost Using k-mean')
 #For each K, calculate the total within-cluster sum of square (WCSS).
 #Plot the curve of WCSS vs the number of clusters K.
 #The location of a bend (knee) in the plot is generally considered as an indicator of the appropriate number of clusters.
-st.header('Chose number of cluster using elbow Method')
+st.header('Evaluating number of cluster using elbow method')
 wcss = []
 for k in range(1,11):
     kmeans = KMeans(n_clusters=k, init="k-means++")
