@@ -108,12 +108,11 @@ st.pyplot(plt.gcf())
 
 
 
-df = pd.read_csv('GHI_yangon_v2.csv')
+df = pd.read_csv('GHI_yangon_v3.csv')
 dataindex= df.iloc[:, [11]]
 print(dataindex)
 
-# Assuming you have already added the "label" column to your DataFrame df
-df.to_csv('modified_data_with_labels.csv', index=False)
+
 
 
 
@@ -149,7 +148,7 @@ fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
 
 # KMeans clustering
-km = KMeans(n_clusters=4)
+km = KMeans(n_clusters=3)
 clusters = km.fit(df[features_3d])
 clusters1 = clusters.predict(df[features_3d])
 df["label"] = clusters1
@@ -188,9 +187,9 @@ st.title('New Dataframe with Cost')
 st.dataframe(df)
 st.markdown("##")
 
-table_data = df[features_3d + ["Category"]]
+table_data = df[features_3d + ["label"]]
 print(table_data)
-df1=(table_data.groupby('Category').mean())
+df1=(table_data.groupby('label').mean())
 st.title('Mean value of three Categories in terms of Area, MW and Cost (M)')
 st.dataframe(df1)
 st.markdown("##")
