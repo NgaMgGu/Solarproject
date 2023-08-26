@@ -7,7 +7,7 @@ Yangon_cities = pd.read_csv('GHI_yangon_v3.csv')
 
 # App title and initial map display
 st.title('Solar Generation Area in Yangon Region')
-fig = px.scatter_mapbox(Yangon_cities, lat="Y_Coordinate", lon="X_Coordinate", hover_name="TS_Name", hover_data=["ID", "Category","Shape_Area(sqm)", "GHI_MW","GHI_kWh","Cost_USD(M)"],
+fig = px.scatter_mapbox(Yangon_cities, lat="Y_Coordinate", lon="X_Coordinate", hover_name="TS_Name", hover_data=["ID", "label","Shape_Area(sqm)", "GHI_MW","GHI_kWh","Cost_USD(M)"],
                         color_discrete_sequence=["fuchsia"], size_max=15, zoom=10, height=700)
 fig.update_layout(mapbox_style="open-street-map")
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
