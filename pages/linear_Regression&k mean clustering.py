@@ -194,31 +194,7 @@ st.title('Mean value of three Categories in terms of Area, MW and Cost (M)')
 st.dataframe(df1)
 st.markdown("##")
 
-st.title('Cluster the new circustances')
 
-area = st.sidebar.number_input('Shape_Area(sqm)')
-ghimW = st.sidebar.number_input('GHI_MW')
-Cost = st.sidebar.number_input('Cost_USD(M)')
-
-data = {'Shape_Area(sqm)': area,
-            'GHI_MW': ghimW,
-            'Cost_USD(M)': Cost}
-features = pd.DataFrame(data, index=[0])
-#features['Shape_Area(sqm)'] = features['Shape_Area(sqm)'].astype(str).astype(float)
-#features['GHI_MW'] = features['GHI_MW'].astype(str).astype(float)
-#features['Cost_USD(M)'] = features['Cost_USD(M)'].astype(str).astype(float)
-#features = features.astype({'Shape_Area(sqm)':'float', 'GHI_MW':float, 'Cost_USD':float})
-st.write(area)
-clusters2 = clusters.predict(features)
-if (clusters2==0.0):
-    st.write('The Solar generaton category is category 1')
-elif (clusters2==2):
-    st.write('The Solar generaton category is category 2')
-else:
-    st.write('The Solar generaton category is category 3')
-
-
-st.markdown("##")
 
 
 
