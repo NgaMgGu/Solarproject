@@ -6,7 +6,7 @@ import plotly.express as px
 Yangon_cities = pd.read_csv('GHI_yangon_v3.csv')
 
 # App title and initial map display
-st.title('Solar Generation Area in Yangon Region')
+st.title('Solar Generation Potential in the Yangon Region')
 fig = px.scatter_mapbox(Yangon_cities, lat="Y_Coordinate", lon="X_Coordinate", hover_name="TS_Name", hover_data=["ID", "label","Shape_Area(sqm)", "GHI_MW","GHI_kWh","Cost_USD(M)"],
                         color_discrete_sequence=["fuchsia"], size_max=15, zoom=10, height=700)
 fig.update_layout(mapbox_style="open-street-map")
@@ -15,11 +15,11 @@ st.plotly_chart(fig, use_container_width=True)
 st.markdown("##")
 
 # Title and sidebar for filtering
-st.title('Solar Generation Area based on Selected Tsp in Yangon Region')
+st.title('Solar Generation Potential based on Selected Townships in Yangon Region')
 st.sidebar.title('Please select township')
 
 # Create a radio button to select township
-tsp = st.sidebar.radio("What's your interested tsp", ('Dagon Myothit (East)','Dala','Hlegu','Hmawbi','Htantabin','Kawhmu','Kayan','Kungyangon','Kyauktan','Kyeemyindaing','Taikkyi','Thanlyin','Thongwa','Twantay'))
+tsp = st.sidebar.radio("What's your interested township", ('Dagon Myothit (East)','Dala','Hlegu','Hmawbi','Htantabin','Kawhmu','Kayan','Kungyangon','Kyauktan','Kyeemyindaing','Taikkyi','Thanlyin','Thongwa','Twantay'))
 
 
 dft = pd.read_csv('Mean_Category.csv')
@@ -29,13 +29,13 @@ st.markdown("##")
 
 
 # Create a multiselect to choose filtering by label column (Category)
-Category_column = st.sidebar.radio("Check the mean value of Category and Select Category Column you want", (0, 1, 2))
+Category_column = st.sidebar.radio("Check the mean value of Cluster and Select Cluster Column you want", (0, 1, 2))
 
 # Filter data based on the selected label column (Category) and township
 filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_cities['label'] == Category_column)]
 
 # Create a multiselect to choose filtering within the selected category
-category_filter = st.sidebar.multiselect("Filter within Category", options=filtered_data['label'].unique())
+category_filter = st.sidebar.multiselect("Filter within Cluster", options=filtered_data['label'].unique())
 
 # Apply additional filter if needed
 if category_filter:
