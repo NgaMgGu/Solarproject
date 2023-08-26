@@ -203,8 +203,9 @@ if kmmodel:
             #features['GHI_MW'] = features['GHI_MW'].astype(str).astype(float)
             #features['Cost_USD(M)'] = features['Cost_USD(M)'].astype(str).astype(float)
             #features = features.astype({'Shape_Area(sqm)':'float', 'GHI_MW':float, 'Cost_USD':float})
-            st.write(area)
+            #st.write()
             clusters2 = clusters.predict(features)
+            st.write(clusters2)
             if (clusters2==0):
                 st.write('The Solar generaton category is category 1')
             elif (clusters2==1):
