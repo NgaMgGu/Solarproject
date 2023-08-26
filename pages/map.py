@@ -25,7 +25,8 @@ tsp = st.sidebar.radio("What's your interested tsp", ('Dagon Myothit (East)','Da
 label_column = st.sidebar.radio("Select Label Column", (0, 1, 2))
 
 # Filter data based on the selected label column and township
-filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_cities['Label'] == label_column)]
+filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_cities['Label_Column'] == label_column)]
+
 
 # Create a multiselect to choose filtering by MW or cost
 filter_by = st.sidebar.multiselect("Filter by", options=['GHI_MW', 'Cost_USD(M)'])
