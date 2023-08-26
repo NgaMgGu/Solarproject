@@ -186,10 +186,10 @@ st.title('New Dataframe with Cost')
 st.dataframe(df)
 st.markdown("##")
 
-table_data = df[features_3d + ["label"]]
+table_data = df[features_3d + ["Category"]]
 print(table_data)
-df1=(table_data.groupby('label').mean())
-st.title('Mean value of three clusters in terms of Area, MW and Cost (M)')
+df1=(table_data.groupby('Category').mean())
+st.title('Mean value of three Categories in terms of Area, MW and Cost (M)')
 st.dataframe(df1)
 st.markdown("##")
 
