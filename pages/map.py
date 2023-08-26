@@ -21,8 +21,15 @@ st.sidebar.title('Please select township')
 # Create a radio button to select township
 tsp = st.sidebar.radio("What's your interested tsp", ('Dagon Myothit (East)','Dala','Hlegu','Hmawbi','Htantabin','Kawhmu','Kayan','Kungyangon','Kyauktan','Kyeemyindaing','Taikkyi','Thanlyin','Thongwa','Twantay'))
 
+
+dft = pd.read_csv('Mean_Category.csv')
+st.title('Mean value of three clusters in terms of Area, MW and Cost (M)')
+st.dataframe(dft)
+st.markdown("##")
+
+
 # Create a multiselect to choose filtering by label column (Category)
-Category_column = st.sidebar.radio("Select Category Column", (0, 1, 2))
+Category_column = st.sidebar.radio("Check the mean value of Category and Select Category Column you want", (0, 1, 2))
 
 # Filter data based on the selected label column (Category) and township
 filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_cities['Category'] == Category_column)]
