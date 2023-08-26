@@ -23,7 +23,7 @@ tsp = st.sidebar.radio("What's your interested township", ('Dagon Myothit (East)
 
 
 dft = pd.read_csv('Mean_Category.csv')
-st.title('Mean value of three clusters in terms of Area, MW and Cost (M)')
+st.header('Mean value of three clusters in terms of Area, MW and Cost (M)')
 st.dataframe(dft)
 st.markdown("##")
 
