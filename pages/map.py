@@ -21,13 +21,19 @@ st.sidebar.title('Please select township and filter the solar potential and cost
 # Create a radio button to select township
 tsp = st.sidebar.radio("What's your interested tsp", ('Dagon Myothit (East)','Dala','Hlegu','Hmawbi','Htantabin','Kawhmu','Kayan','Kungyangon','Kyauktan','Kyeemyindaing','Taikkyi','Thanlyin','Thongwa','Twantay'))
 
-# Create a multiselect to choose filtering by label column
+# Create a multiselect to choose filtering by label column (Category)
 Category_column = st.sidebar.radio("Select Category Column", (0, 1, 2))
 
-# Filter data based on the selected label column and township
+# Filter data based on the selected label column (Category) and township
 filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_cities['Category'] == Category_column)]
 
+# Create a multiselect to choose filtering within the selected category
+category_filter = st.sidebar.multiselect("Filter within Category", options=filtered_data['Category'].unique())
 
+# Apply additional filter if needed
+if category_filter:
+    filtered_data = filtered_data[filtered_data['Category'].isin(category_filter)]
+    
 # Create a multiselect to choose filtering by MW or cost
 filter_by = st.sidebar.multiselect("Filter by", options=['GHI_MW', 'Cost_USD(M)'])
 
