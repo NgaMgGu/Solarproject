@@ -183,14 +183,14 @@ ax.legend()
 st.pyplot(fig)
 
 
-st.title('New Dataframe with Cost')
+st.title('New dataframe with cost and label cluster')
 st.dataframe(df)
 st.markdown("##")
 
 table_data = df[features_3d + ["label"]]
 print(table_data)
 df1=(table_data.groupby('label').mean())
-st.title('Mean value of three Categories in terms of Area, MW and Cost (M)')
+st.title('Mean value of three clusters in terms of Area, MW and Cost (M)')
 st.dataframe(df1)
 st.markdown("##")
 
