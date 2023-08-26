@@ -147,7 +147,7 @@ fig = plt.figure(figsize=(10, 8))
 ax = fig.add_subplot(111, projection='3d')
 
 # KMeans clustering
-km = KMeans(n_clusters=3)
+km = KMeans(n_clusters=4)
 clusters = km.fit(df[features_3d])
 clusters1 = clusters.predict(df[features_3d])
 df["label"] = clusters1
