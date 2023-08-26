@@ -207,11 +207,11 @@ if kmmodel:
             clusters2 = clusters.predict(features)
             st.write(clusters2)
             if (clusters2==0):
-                st.write('The Solar generaton category is category 1')
+                st.write('The Solar generaton category is category 0')
             elif (clusters2==1):
-                st.write('The Solar generaton category is category 2')
+                st.write('The Solar generaton category is category 1')
             else:
-                st.write('The Solar generaton category is category 3')
+                st.write('The Solar generaton category is category 2')
 
 
     st.markdown("##")
