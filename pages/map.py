@@ -28,7 +28,7 @@ Category_column = st.sidebar.radio("Select Category Column", (0, 1, 2))
 filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_cities['Category'] == Category_column)]
 
 # Create a multiselect to choose filtering within the selected category
-category_filter = st.sidebar.multiselect("Filter within Category", options=filtered_data['Category'].unique())
+#category_filter = st.sidebar.multiselect("Filter within Category", options=filtered_data['Category'].unique())
 
 # Apply additional filter if needed
 if category_filter:
