@@ -112,6 +112,8 @@ df = pd.read_csv('GHI_yangon_v2.csv')
 dataindex= df.iloc[:, [11]]
 print(dataindex)
 
+# Assuming you have already added the "label" column to your DataFrame df
+df.to_csv('modified_data_with_labels.csv', index=False)
 
 
 
