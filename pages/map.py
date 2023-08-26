@@ -21,11 +21,14 @@ st.sidebar.title('Please select township and filter the solar potential and cost
 # Create a radio button to select township
 tsp = st.sidebar.radio("What's your interested tsp", ('Dagon Myothit (East)','Dala','Hlegu','Hmawbi','Htantabin','Kawhmu','Kayan','Kungyangon','Kyauktan','Kyeemyindaing','Taikkyi','Thanlyin','Thongwa','Twantay'))
 
+# Create a multiselect to choose filtering by label column
+label_column = st.sidebar.radio("Select Label Column", (0, 1, 2))
+
+# Filter data based on the selected label column and township
+filtered_data = Yangon_cities.loc[(Yangon_cities['TS_Name'] == tsp) & (Yangon_cities['Label'] == label_column)]
+
 # Create a multiselect to choose filtering by MW or cost
 filter_by = st.sidebar.multiselect("Filter by", options=['GHI_MW', 'Cost_USD(M)'])
-
-# Filter data based on the selected township
-filtered_data = Yangon_cities.loc[Yangon_cities['TS_Name'] == tsp]
 
 # Apply additional filter if needed
 if filter_by:
@@ -42,4 +45,3 @@ taifig = px.scatter_mapbox(filtered_data, lat="Y_Coordinate", lon="X_Coordinate"
 taifig.update_layout(mapbox_style="open-street-map")
 taifig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 st.plotly_chart(taifig, use_container_width=True)
-
