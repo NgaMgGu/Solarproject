@@ -171,7 +171,7 @@ if kmmodel:
     st.pyplot(fig)
 
 
-    st.title('New Dataframw with Cost')
+    st.title('New Dataframe with Cost')
     st.dataframe(df)
     st.markdown("##")
 
